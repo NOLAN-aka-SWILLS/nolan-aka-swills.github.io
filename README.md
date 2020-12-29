@@ -1,2 +1,0 @@
-# swills.dev
-website files
