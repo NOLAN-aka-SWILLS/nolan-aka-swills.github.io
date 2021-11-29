@@ -1,0 +1,100 @@
+<head>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+  <script src="wow.min.js"></script>
+  <script>
+    new WOW().init();
+  </script>
+  <script type="text/javascript" src="/script.js">
+  </script>
+
+  <link rel="stylesheet" href="/style.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+</head>
+
+
+<div class="container-loading">
+  <p id="loading" class="wow animate__animated animate__animated animate__fadeIn" alt="Loading">Loading</p>
+</div>
+
+<body id="body-container">
+  <div class="container-welcome wow animate__animated animate__animated animate__fadeIn " data-wow-delay="1.5s" id="container-welcome">
+    <span class="welcome"id="welcome"></span>
+  </div>
+
+  <div id="anime-info" class="container-animeinfo ">
+    <span class="anime-abstract wow animate__animated animate__animated animate__fadeIn" data-wow-delay=".5s" id="abstract"></span>
+  </div>
+
+  <!--246x246-->
+  <div class="container-image">
+    <div class="responseimage wow animate__animated animate__animated animate__fadeIn" data-wow-delay="2s"></div>
+  </div>
+
+  <div class="container">
+    <input id="animenameraw" type="text" placeholder="Search...">
+
+    <div id="searchicon" class="search wow animate__animated animate__animated animate__fadeIn" data-wow-delay="1.5s">
+    </div>
+  </div>
+
+  <div id="container-results" class="container-results">
+    <div id="searchicon" class="search"></div>
+    <span class="results wow animate__animated animate__animated animate__fadeIn" data-wow-delay="1s"
+      id="result"></span>
+  </div>
+</body>
+
+
+<!--ENTER KEYSTROKE HANDLER-->
+<script type="text/javascript">
+  $("#animenameraw").on('keyup', function (event) {
+    if (event.keyCode === 13) {
+      window.location.replace("?search=" + document.getElementById("animenameraw").value);
+    }
+  });
+</script>
+<!--PARAM HANDLER-->
+<script type="text/javascript">
+  function getParams() {
+    var idx = document.URL.indexOf('?');
+    var params = new Array();
+    if (idx != -1) {
+      var pairs = document.URL.substring(idx + 1, document.URL.length).split('&');
+      for (var i = 0; i < pairs.length; i++) {
+        nameVal = pairs[i].split('=');
+        params[nameVal[0]] = nameVal[1];
+      }
+    }
+    return params;
+  }
+  params = getParams();
+  try {
+    if (params.search.length > 0) {
+      document.getElementById("animenameraw").value = params.search;
+      pr();
+    };
+  }
+  catch (e) {
+    console.log("No external parameter");
+  };
+</script>
+
+<!-- TYPE WRITER -->
+<script type="text/javascript">
+  var app =document.getElementById("welcome");
+
+  var typewriter = new Typewriter(app, {
+    loop: true
+  });
+  typewriter.typeString('Discontinued?')
+    .pauseFor(2000)
+    .deleteAll()
+    .typeString('Never ending?')
+    .pauseFor(2000)
+    .start();
+
+</script>
