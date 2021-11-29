@@ -37,7 +37,7 @@ function image_choosers() {
 }
 
 function getAbstract(name) {
-    var dbopurl = "http://dbpedia.org/sparql";
+    var dbopurl = "https://dbpedia.org/sparql";
     var query2 = [
         "SELECT *",
         "WHERE {",
