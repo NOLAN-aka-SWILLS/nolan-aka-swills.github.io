@@ -235,13 +235,39 @@
      z-index: 10;
      text-overflow: clip;
 }
- @media screen and (max-width: 600px) {
-     .welcome {
-         padding-top: 300px;
-         font-size: 50px;
-    }
-     .container .search {
-         width: 200px;
-         height: 200px;
-    }
+@media (min-width: 576px) {
+	:root {
+	  --size-divisor: 4;
+	}
+  }
+  @media (min-width: 768px) {
+	:root {
+	  --size-divisor: 3;
+	}
+  }
+  @media (min-width: 992px) { 
+	:root {
+	  --size-divisor: 1;
+	}
+  }
+  @media (min-width: 1200px) { 
+	:root {
+	  --size-divisor: .67;
+	}
+  }
+@media only screen 
+and (max-width : 320px) {
+	.welcome {
+		padding-top: 300px;
+		font-size: 50px;
+   }
+}
+.container .search {
+	width: calc(80px * var(--size-divisor));
+	height: calc(80px * var(--size-divisor));
+
+}
+.container input {
+	width: calc(50px * var(--size-divisor));
+	height: calc(50px * var(--size-divisor));
 }
