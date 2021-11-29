@@ -35,13 +35,7 @@ function image_choosers() {
     }, 2000);
 
 }
-``` SPARQL REQUEST
-SELECT *
-WHERE {
-?AnimeTitle rdfs:label "One Piece"@en ;
-dbo:abstract ?Abstract.
-}
-```
+
 function getAbstract(name) {
     var dbopurl = "http://dbpedia.org/sparql";
     var query2 = [
