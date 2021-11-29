@@ -61,7 +61,7 @@ function getAbstract(name) {
     });
 };
 function getStatus(name) {
-    var dbopurl = "http://dbpedia.org/sparql";
+    var dbopurl = "https://dbpedia.org/sparql";
     var query = [
         "SELECT *",
         "WHERE {",
